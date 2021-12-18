@@ -53,8 +53,8 @@ const App = () => {
           }
           setNotification({type: 'success', message: `Added ${personRes.name}`})
         })
-        .catch(() => {
-          setNotification({type: 'error', message: `Could not add ${newName}`})
+        .catch(error => {
+          setNotification({type: 'error', message: error.response.data.error})
         })
       
     } else {
@@ -69,8 +69,8 @@ const App = () => {
             setNewNumber('')
             setNotification({type: 'success', message: `Updated ${updatedPerson.name}'s number`})
           })
-          .catch(() => {
-            setNotification({type: 'error', message: `Could not update ${updatedPerson.name}'s number`})
+          .catch(error => {
+            setNotification({type: 'error', message: error.response.data.error})
           })
       }
     }
